@@ -1,0 +1,350 @@
+<mat-card class="cardWithShadow mb-0! overflow-hidden">
+    <mat-card-content>
+        <div class="flex items-center justify-between gap-6 flex-wrap mb-6">
+            <mat-card-title class="text-lg">Recent Projects</mat-card-title>
+            <div class="flex items-center justify-center gap-2">
+                <div class="theme-tab">
+                    <ul class="mat-mdc-tab-header list-unstyled p-0 m-0 flex items-center">
+                        <li><a [ngClass]="tabtitle==='saas' ? 'active-class' : ''" class="mat-mdc-tab text-xs"
+                                href="javascript:void(0)" (click)="handleTab('saas')">SaaS</a></li>
+                        <li><a [ngClass]="tabtitle=='mobile'? 'active-class' : ''" class="mat-mdc-tab text-xs"
+                                href="javascript:void(0)" (click)="handleTab('mobile')">Mobile</a></li>
+                        <li><a [ngClass]="tabtitle=='others'? 'active-class' : ''" class="mat-mdc-tab text-xs"
+                                href="javascript:void(0)" (click)="handleTab('others')">Others</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <button mat-icon-button [matMenuTriggerFor]="menu">
+                        <mat-icon>more_vert</mat-icon>
+                    </button>
+                    <mat-menu #menu="matMenu" xPosition="before">
+                        <a href="javascript:void(0)" class="flex items-center py-2.5 px-4 gap-2">
+                            <span>Action</span>
+                        </a>
+                        <a href="javascript:void(0)" class="flex items-center py-2.5 px-4 gap-2">
+                            <span>Another action</span>
+                        </a>
+                        <a href="javascript:void(0)" class="flex items-center py-2.5 px-4 gap-2">
+                            <span>Something else here</span>
+                        </a>
+                    </mat-menu>
+                </div>
+            </div>
+        </div>
+
+
+        @if (tabtitle==="saas") {
+        <div class="relative overflow-auto">
+            <table mat-table [dataSource]="dataSource" class="min-w-full">
+                <ng-container matColumnDef="#">
+                    <th mat-header-cell *matHeaderCellDef class="text-sm font-semibold pl-0">
+                        #
+                    </th>
+                    <td mat-cell class="pl-0 whitespace-nowrap" *matCellDef="let element">
+                        <mat-checkbox color="primary"></mat-checkbox>
+                    </td>
+                </ng-container>
+                <!-- Profile Column -->
+                <ng-container matColumnDef="name">
+                    <th mat-header-cell *matHeaderCellDef class="text-sm font-semibold">
+                        Name
+                    </th>
+                    <td mat-cell class="whitespace-nowrap" *matCellDef="let element">
+                        <div class="flex items-center gap-6">
+                            <span class="{{ element.bgcolor }} items-center flex justify-center px-4 py-2 rounded-full">
+                                <img [src]="element.imagePath" alt="users" />
+                            </span>
+                            <div>
+                                <h6 class="text-base">
+                                    {{ element.name }}
+                                </h6>
+                            </div>
+                        </div>
+                    </td>
+                </ng-container>
+
+                <!-- Hour Rate Column -->
+                <ng-container matColumnDef="budget">
+                    <th mat-header-cell *matHeaderCellDef class="text-sm font-semibold text-right!">
+                        Budget
+                    </th>
+                    <td class="text-right! whitespace-nowrap" mat-cell *matCellDef="let element">
+                        <h6 class="text-sm">
+                            {{ element.budget }}
+                        </h6>
+                    </td>
+                </ng-container>
+
+                <!-- Symbol Column -->
+                <ng-container matColumnDef="team">
+                    <th mat-header-cell *matHeaderCellDef class="text-sm font-semibold text-right!">
+                        Team
+                    </th>
+                    <td class="text-right! whitespace-nowrap" mat-cell *matCellDef="let element">
+                        <div class="flex items-center justify-end">
+                            <img src="assets/images/profile/user-2.jpg" alt="user-1"
+                                class="rounded-full -ml-2.5 border-2 border-white first:ml-0" width="30" />
+                            <img src="assets/images/profile/user-3.jpg" alt="user-1"
+                                class="rounded-full -ml-2.5 border-2 border-white" width="30" />
+                            <img src="assets/images/profile/user-4.jpg" alt="user-1"
+                                class="rounded-full -ml-2.5 border-2 border-white" width="30" />
+                            <span
+                                class="size-7.5! bg-light-primary text-primary rounded-full -ml-2.5 border-2 border-white flex items-center justify-center">+3
+                            </span>
+                        </div>
+                    </td>
+                </ng-container>
+
+                <ng-container matColumnDef="leader">
+                    <th mat-header-cell *matHeaderCellDef class="text-sm font-semibold text-right!">
+                        Leader
+                    </th>
+                    <td class="text-right! whitespace-nowrap" mat-cell *matCellDef="let element">
+                        <p class="text-muted text-sm font-medium">{{ element.leader }}</p>
+                    </td>
+                </ng-container>
+
+                <ng-container matColumnDef="activity log">
+                    <th mat-header-cell *matHeaderCellDef class="text-sm font-semibold text-right!">
+                        Activity Log
+                    </th>
+                    <td class="text-right! whitespace-nowrap" mat-cell *matCellDef="let element">
+                        @if (element.chart==="successChart") {
+                        <apx-chart class="flex justify-end" [series]="successChart.series" [chart]="successChart.chart"
+                            [stroke]="successChart.stroke" [fill]="successChart.fill" [markers]="successChart.markers"
+                            [tooltip]="successChart.tooltip"></apx-chart>
+
+                        } @else if(element.chart==="errorChart") {
+                        <apx-chart class="flex justify-end" [series]="errorChart.series" [chart]="errorChart.chart"
+                            [stroke]="errorChart.stroke" [fill]="errorChart.fill" [markers]="errorChart.markers"
+                            [tooltip]="errorChart.tooltip"></apx-chart>
+
+                        } @else if(element.chart==="warningChart") {
+                        <apx-chart class="flex justify-end" [series]="warningChart.series" [chart]="warningChart.chart"
+                            [stroke]="warningChart.stroke" [fill]="warningChart.fill" [markers]="warningChart.markers"
+                            [tooltip]="warningChart.tooltip"></apx-chart>
+
+                        } @else{
+                        <apx-chart class="flex justify-end" [series]="accentChart.series" [chart]="accentChart.chart"
+                            [stroke]="accentChart.stroke" [fill]="accentChart.fill" [markers]="accentChart.markers"
+                            [tooltip]="accentChart.tooltip"></apx-chart>
+                        }
+                    </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+            </table>
+        </div>
+
+        } @else if(tabtitle==="mobile") {
+        <div class="relative overflow-auto">
+            <table mat-table [dataSource]="dataSource2" class="min-w-full">
+                <ng-container matColumnDef="#">
+                    <th mat-header-cell *matHeaderCellDef class="text-sm font-semibold pl-0">
+                        #
+                    </th>
+                    <td mat-cell class="pl-0 whitespace-nowrap" *matCellDef="let element">
+                        <mat-checkbox color="primary"></mat-checkbox>
+                    </td>
+                </ng-container>
+                <!-- Profile Column -->
+                <ng-container matColumnDef="name">
+                    <th mat-header-cell *matHeaderCellDef class="text-sm font-semibold">
+                        Name
+                    </th>
+                    <td mat-cell class="whitespace-nowrap" *matCellDef="let element">
+                        <div class="flex items-center gap-6">
+                            <span class="{{ element.bgcolor }} items-center flex justify-center px-4 py-2 rounded-full">
+                                <img [src]="element.imagePath" alt="users" />
+                            </span>
+                            <div>
+                                <h6 class="text-base">
+                                    {{ element.name }}
+                                </h6>
+                            </div>
+                        </div>
+                    </td>
+                </ng-container>
+
+                <!-- Hour Rate Column -->
+                <ng-container matColumnDef="budget">
+                    <th mat-header-cell *matHeaderCellDef class="text-sm font-semibold text-right!">
+                        Budget
+                    </th>
+                    <td class="text-right! whitespace-nowrap" mat-cell *matCellDef="let element">
+                        <h6 class="text-sm">
+                            {{ element.budget }}
+                        </h6>
+                    </td>
+                </ng-container>
+
+                <!-- Symbol Column -->
+                <ng-container matColumnDef="team">
+                    <th mat-header-cell *matHeaderCellDef class="text-sm font-semibold text-right!">
+                        Team
+                    </th>
+                    <td class="text-right! whitespace-nowrap" mat-cell *matCellDef="let element">
+                        <div class="flex items-center justify-end">
+                            <img src="assets/images/profile/user-2.jpg" alt="user-1"
+                                class="rounded-full -ml-2.5 border-2 border-white first:ml-0" width="30" />
+                            <img src="assets/images/profile/user-3.jpg" alt="user-1"
+                                class="rounded-full -ml-2.5 border-2 border-white" width="30" />
+                            <img src="assets/images/profile/user-4.jpg" alt="user-1"
+                                class="rounded-full -ml-2.5 border-2 border-white" width="30" />
+                            <span
+                                class="size-7.5! bg-light-primary text-primary rounded-full -ml-2.5 border-2 border-white flex items-center justify-center">+3
+                            </span>
+                        </div>
+                    </td>
+                </ng-container>
+
+                <ng-container matColumnDef="leader">
+                    <th mat-header-cell *matHeaderCellDef class="text-sm font-semibold text-right!">
+                        Leader
+                    </th>
+                    <td class="text-right! whitespace-nowrap" mat-cell *matCellDef="let element">
+                        <p class="text-muted text-sm font-medium">{{ element.leader }}</p>
+                    </td>
+                </ng-container>
+
+                <ng-container matColumnDef="activity log">
+                    <th mat-header-cell *matHeaderCellDef class="text-sm font-semibold text-right!">
+                        Activity Log
+                    </th>
+                    <td class="text-right! whitespace-nowrap" mat-cell *matCellDef="let element">
+                        @if (element.chart==="successChart") {
+                        <apx-chart class="flex justify-end" [series]="successChart.series" [chart]="successChart.chart"
+                            [stroke]="successChart.stroke" [fill]="successChart.fill" [markers]="successChart.markers"
+                            [tooltip]="successChart.tooltip"></apx-chart>
+
+                        } @else if(element.chart==="errorChart") {
+                        <apx-chart class="flex justify-end" [series]="errorChart.series" [chart]="errorChart.chart"
+                            [stroke]="errorChart.stroke" [fill]="errorChart.fill" [markers]="errorChart.markers"
+                            [tooltip]="errorChart.tooltip"></apx-chart>
+
+                        } @else if(element.chart==="warningChart") {
+                        <apx-chart class="flex justify-end" [series]="warningChart.series" [chart]="warningChart.chart"
+                            [stroke]="warningChart.stroke" [fill]="warningChart.fill" [markers]="warningChart.markers"
+                            [tooltip]="warningChart.tooltip"></apx-chart>
+
+                        } @else{
+                        <apx-chart class="flex justify-end" [series]="accentChart.series" [chart]="accentChart.chart"
+                            [stroke]="accentChart.stroke" [fill]="accentChart.fill" [markers]="accentChart.markers"
+                            [tooltip]="accentChart.tooltip"></apx-chart>
+                        }
+                    </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+            </table>
+        </div>
+
+        } @else{
+        <div class="relative overflow-auto">
+            <table mat-table [dataSource]="dataSource3" class="min-w-full">
+                <ng-container matColumnDef="#">
+                    <th mat-header-cell *matHeaderCellDef class="text-sm font-semibold pl-0">
+                        #
+                    </th>
+                    <td mat-cell class="pl-0 whitespace-nowrap" *matCellDef="let element">
+                        <mat-checkbox color="primary"></mat-checkbox>
+                    </td>
+                </ng-container>
+                <!-- Profile Column -->
+                <ng-container matColumnDef="name">
+                    <th mat-header-cell *matHeaderCellDef class="text-sm font-semibold">
+                        Name
+                    </th>
+                    <td mat-cell class="whitespace-nowrap" *matCellDef="let element">
+                        <div class="flex items-center gap-6">
+                            <span class="{{ element.bgcolor }} items-center flex justify-center px-4 py-2 rounded-full">
+                                <img [src]="element.imagePath" alt="users" />
+                            </span>
+                            <div>
+                                <h6 class="text-base">
+                                    {{ element.name }}
+                                </h6>
+                            </div>
+                        </div>
+                    </td>
+                </ng-container>
+
+                <!-- Hour Rate Column -->
+                <ng-container matColumnDef="budget">
+                    <th mat-header-cell *matHeaderCellDef class="text-sm font-semibold text-right!">
+                        Budget
+                    </th>
+                    <td class="text-right! whitespace-nowrap" mat-cell *matCellDef="let element">
+                        <h6 class="text-sm">
+                            {{ element.budget }}
+                        </h6>
+                    </td>
+                </ng-container>
+
+                <!-- Symbol Column -->
+                <ng-container matColumnDef="team">
+                    <th mat-header-cell *matHeaderCellDef class="text-sm font-semibold text-right!">
+                        Team
+                    </th>
+                    <td class="text-right! whitespace-nowrap" mat-cell *matCellDef="let element">
+                        <div class="flex items-center justify-end">
+                            <img src="assets/images/profile/user-2.jpg" alt="user-1"
+                                class="rounded-full -ml-2.5 border-2 border-white first:ml-0" width="30" />
+                            <img src="assets/images/profile/user-3.jpg" alt="user-1"
+                                class="rounded-full -ml-2.5 border-2 border-white" width="30" />
+                            <img src="assets/images/profile/user-4.jpg" alt="user-1"
+                                class="rounded-full -ml-2.5 border-2 border-white" width="30" />
+                            <span
+                                class="size-7.5! bg-light-primary text-primary rounded-full -ml-2.5 border-2 border-white flex items-center justify-center">+3
+                            </span>
+                        </div>
+                    </td>
+                </ng-container>
+
+                <ng-container matColumnDef="leader">
+                    <th mat-header-cell *matHeaderCellDef class="text-sm font-semibold text-right!">
+                        Leader
+                    </th>
+                    <td class="text-right! whitespace-nowrap" mat-cell *matCellDef="let element">
+                        <p class="text-muted text-sm font-medium">{{ element.leader }}</p>
+                    </td>
+                </ng-container>
+
+                <ng-container matColumnDef="activity log">
+                    <th mat-header-cell *matHeaderCellDef class="text-sm font-semibold text-right!">
+                        Activity Log
+                    </th>
+                    <td class="text-right! whitespace-nowrap" mat-cell *matCellDef="let element">
+                        @if (element.chart==="successChart") {
+                        <apx-chart class="flex justify-end" [series]="successChart.series" [chart]="successChart.chart"
+                            [stroke]="successChart.stroke" [fill]="successChart.fill" [markers]="successChart.markers"
+                            [tooltip]="successChart.tooltip"></apx-chart>
+
+                        } @else if(element.chart==="errorChart") {
+                        <apx-chart class="flex justify-end" [series]="errorChart.series" [chart]="errorChart.chart"
+                            [stroke]="errorChart.stroke" [fill]="errorChart.fill" [markers]="errorChart.markers"
+                            [tooltip]="errorChart.tooltip"></apx-chart>
+
+                        } @else if(element.chart==="warningChart") {
+                        <apx-chart class="flex justify-end" [series]="warningChart.series" [chart]="warningChart.chart"
+                            [stroke]="warningChart.stroke" [fill]="warningChart.fill" [markers]="warningChart.markers"
+                            [tooltip]="warningChart.tooltip"></apx-chart>
+
+                        } @else{
+                        <apx-chart class="flex justify-end" [series]="accentChart.series" [chart]="accentChart.chart"
+                            [stroke]="accentChart.stroke" [fill]="accentChart.fill" [markers]="accentChart.markers"
+                            [tooltip]="accentChart.tooltip"></apx-chart>
+                        }
+                    </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+            </table>
+        </div>
+
+        }
+    </mat-card-content>
+</mat-card>

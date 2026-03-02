@@ -1,0 +1,329 @@
+<mat-card class="cardWithShadow mb-0!">
+    <mat-card-content>
+        <div class="flex items-center justify-between mb-6">
+            <div>
+                <mat-card-title>Upcoming Schedules</mat-card-title>
+                <mat-card-subtitle>Our corporate events</mat-card-subtitle>
+            </div>
+
+            <div>
+                <button mat-icon-button [matMenuTriggerFor]="menu">
+                    <mat-icon>more_vert</mat-icon>
+                </button>
+                <mat-menu #menu="matMenu" xPosition="before">
+                    <a href="javascript:void(0)" class="flex items-center py-2.5 px-4 gap-2">
+                        <span>Action</span>
+                    </a>
+                    <a href="javascript:void(0)" class="flex items-center py-2.5 px-4 gap-2">
+                        <span>Another action</span>
+                    </a>
+                    <a href="javascript:void(0)" class="flex items-center py-2.5 px-4 gap-2">
+                        <span>Something else here</span>
+                    </a>
+                </mat-menu>
+            </div>
+        </div>
+    </mat-card-content>
+    <mat-tab-group class="theme-tab" animationDuration="0ms">
+        <mat-tab label="All">
+            <ng-scrollbar class="upcoming-schedules relative mb-2 h-[400px]">
+                <div class="px-6">
+                    <div class="flex items-center gap-4 mt-4">
+                        <div class="size-10! rounded-lg bg-warning flex items-center justify-center">
+                            <i class="iconify text-2xl text-white" data-icon="solar:scooter-line-duotone"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm font-medium my-0 text-muted">Scooter Freight</p>
+                            <h6 class="text-sm">#1245-456201</h6>
+                        </div>
+                        <span
+                            class="bg-light-success text-xs font-medium px-2.5 py-1 rounded-full text-success ml-auto">All</span>
+                    </div>
+                    <div
+                        class="flex items-center gap-4 mt-4 relative after:content-[''] after:h-5 after:w-px after:bg-(--mat-sys-outline-variant) after:absolute after:top-[38px] after:left-5">
+                        <div class="size-10! border border-border rounded-full flex items-center justify-center">
+                            <i class="iconify text-2xl text-warning"
+                                data-icon="solar:soundwave-circle-bold-duotone"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm font-medium my-0 text-muted">Drainage</p>
+                            <h6 class="text-sm">United Kingdom</h6>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4 mt-4 border-b border-border pb-6">
+                        <div class="size-10! border border-border rounded-full flex items-center justify-center">
+                            <i class="iconify text-2xl text-warning" data-icon="solar:map-point-bold-duotone"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm font-medium my-0 text-muted">Drainage</p>
+                            <h6 class="text-sm">United Kingdom</h6>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-4 mt-4">
+                        <div class="size-10! rounded-lg bg-primary flex items-center justify-center">
+                            <i class="iconify text-2xl text-white" data-icon="solar:bus-line-duotone"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm font-medium my-0 text-muted">Bus Freight</p>
+                            <h6 class="text-sm">#9002-125423</h6>
+                        </div>
+                        <span
+                            class="bg-light-success text-xs font-medium px-2.5 py-1 rounded-full text-success ml-auto">All</span>
+                    </div>
+                    <div
+                        class="flex items-center gap-4 mt-4 relative after:content-[''] after:h-5 after:w-px after:bg-(--mat-sys-outline-variant) after:absolute after:top-[38px] after:left-5">
+                        <div class="size-10! border border-border rounded-full flex items-center justify-center">
+                            <i class="iconify text-2xl text-primary"
+                                data-icon="solar:soundwave-circle-bold-duotone"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm font-medium my-0 text-muted">Messina Harbor</p>
+                            <h6 class="text-sm">Sicily, Italy</h6>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4 mt-4 border-b border-border pb-6">
+                        <div class="size-10! border border-border rounded-full flex items-center justify-center">
+                            <i class="iconify text-2xl text-primary" data-icon="solar:map-point-bold-duotone"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm font-medium my-0 text-muted">Hektor Container Hotel</p>
+                            <h6 class="text-sm">Tallin, EST</h6>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-4 mt-4">
+                        <div class="size-10! rounded-lg bg-error flex items-center justify-center">
+                            <i class="iconify text-2xl text-white" data-icon="solar:bus-line-duotone"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm font-medium my-0 text-muted">Tram Freight</p>
+                            <h6 class="text-sm">#1245-780652</h6>
+                        </div>
+                        <span
+                            class="bg-light-success text-xs font-medium px-2.5 py-1 rounded-full text-success ml-auto">Delivered</span>
+                    </div>
+                    <div
+                        class="flex items-center gap-4 mt-4 relative after:content-[''] after:h-5 after:w-px after:bg-(--mat-sys-outline-variant) after:absolute after:top-[38px] after:left-5">
+                        <div class="size-10! border border-border rounded-full flex items-center justify-center">
+                            <i class="iconify text-2xl text-error" data-icon="solar:soundwave-circle-bold-duotone"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm font-medium my-0 text-muted">Messina Harbor</p>
+                            <h6 class="text-sm">Lester, United Kingdom</h6>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4 mt-4 pb-6">
+                        <div class="size-10! border border-border rounded-full flex items-center justify-center">
+                            <i class="iconify text-2xl text-error" data-icon="solar:map-point-bold-duotone"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm font-medium my-0 text-muted">Laxmi Empire Hotel</p>
+                            <h6 class="text-sm">Mumbai, India</h6>
+                        </div>
+                    </div>
+                </div>
+            </ng-scrollbar>
+        </mat-tab>
+        <mat-tab label="Delivered">
+            <ng-scrollbar class="upcoming-schedules relative mb-2 h-[400px]">
+                <div class="px-6">
+                    <div class="flex items-center gap-4 mt-4">
+                        <div class="size-10! rounded-lg bg-warning flex items-center justify-center">
+                            <i class="iconify text-2xl text-white" data-icon="solar:scooter-line-duotone"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm font-medium my-0 text-muted">Scooter Freight</p>
+                            <h6 class="text-sm">#1245-456201</h6>
+                        </div>
+                        <span
+                            class="bg-light-success text-xs font-medium px-2.5 py-1 rounded-full text-success ml-auto">Delivered</span>
+                    </div>
+                    <div
+                        class="flex items-center gap-4 mt-4 relative after:content-[''] after:h-5 after:w-px after:bg-(--mat-sys-outline-variant) after:absolute after:top-[38px] after:left-5">
+                        <div class="size-10! border border-border rounded-full flex items-center justify-center">
+                            <i class="iconify text-2xl text-warning"
+                                data-icon="solar:soundwave-circle-bold-duotone"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm font-medium my-0 text-muted">Drainage</p>
+                            <h6 class="text-sm">United Kingdom</h6>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4 mt-4 border-b border-border pb-6">
+                        <div class="size-10! border border-border rounded-full flex items-center justify-center">
+                            <i class="iconify text-2xl text-warning" data-icon="solar:map-point-bold-duotone"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm font-medium my-0 text-muted">Drainage</p>
+                            <h6 class="text-sm">United Kingdom</h6>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-4 mt-4">
+                        <div class="size-10! rounded-lg bg-primary flex items-center justify-center">
+                            <i class="iconify text-2xl text-white" data-icon="solar:bus-line-duotone"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm font-medium my-0 text-muted">Bus Freight</p>
+                            <h6 class="text-sm">#9002-125423</h6>
+                        </div>
+                        <span
+                            class="bg-light-success text-xs font-medium px-2.5 py-1 rounded-full text-success ml-auto">Delivered</span>
+                    </div>
+                    <div
+                        class="flex items-center gap-4 mt-4 relative after:content-[''] after:h-5 after:w-px after:bg-(--mat-sys-outline-variant) after:absolute after:top-[38px] after:left-5">
+                        <div class="size-10! border border-border rounded-full flex items-center justify-center">
+                            <i class="iconify text-2xl text-primary"
+                                data-icon="solar:soundwave-circle-bold-duotone"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm font-medium my-0 text-muted">Messina Harbor</p>
+                            <h6 class="text-sm">Sicily, Italy</h6>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4 mt-4 border-b border-border pb-6">
+                        <div class="size-10! border border-border rounded-full flex items-center justify-center">
+                            <i class="iconify text-2xl text-primary" data-icon="solar:map-point-bold-duotone"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm font-medium my-0 text-muted">Hektor Container Hotel</p>
+                            <h6 class="text-sm">Tallin, EST</h6>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-4 mt-4">
+                        <div class="size-10! rounded-lg bg-error flex items-center justify-center">
+                            <i class="iconify text-2xl text-white" data-icon="solar:bus-line-duotone"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm font-medium my-0 text-muted">Tram Freight</p>
+                            <h6 class="text-sm">#1245-780652</h6>
+                        </div>
+                        <span
+                            class="bg-light-success text-xs font-medium px-2.5 py-1 rounded-full text-success ml-auto">Delivered</span>
+                    </div>
+                    <div
+                        class="flex items-center gap-4 mt-4 relative after:content-[''] after:h-5 after:w-px after:bg-(--mat-sys-outline-variant) after:absolute after:top-[38px] after:left-5">
+                        <div class="size-10! border border-border rounded-full flex items-center justify-center">
+                            <i class="iconify text-2xl text-error" data-icon="solar:soundwave-circle-bold-duotone"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm font-medium my-0 text-muted">Messina Harbor</p>
+                            <h6 class="text-sm">Lester, United Kingdom</h6>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4 mt-4 pb-6">
+                        <div class="size-10! border border-border rounded-full flex items-center justify-center">
+                            <i class="iconify text-2xl text-error" data-icon="solar:map-point-bold-duotone"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm font-medium my-0 text-muted">Laxmi Empire Hotel</p>
+                            <h6 class="text-sm">Mumbai, India</h6>
+                        </div>
+                    </div>
+                </div>
+            </ng-scrollbar>
+        </mat-tab>
+        <mat-tab label="Shipping">
+            <ng-scrollbar class="upcoming-schedules relative mb-2 h-[400px]">
+                <div class="px-6">
+                    <div class="flex items-center gap-4 mt-4">
+                        <div class="size-10! rounded-lg bg-error flex items-center justify-center">
+                            <i class="iconify text-2xl text-white" data-icon="solar:bus-line-duotone"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm font-medium my-0 text-muted">Tram Freight</p>
+                            <h6 class="text-sm">#1245-780652</h6>
+                        </div>
+                        <span
+                            class="bg-light-success text-xs font-medium px-2.5 py-1 rounded-full text-success ml-auto">Delivered</span>
+                    </div>
+                    <div
+                        class="flex items-center gap-4 mt-4 relative after:content-[''] after:h-5 after:w-px after:bg-(--mat-sys-outline-variant) after:absolute after:top-[38px] after:left-5">
+                        <div class="size-10! border border-border rounded-full flex items-center justify-center">
+                            <i class="iconify text-2xl text-error" data-icon="solar:soundwave-circle-bold-duotone"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm font-medium my-0 text-muted">Messina Harbor</p>
+                            <h6 class="text-sm">Lester, United Kingdom</h6>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4 mt-4 pb-6 border-b border-border">
+                        <div class="size-10! border border-border rounded-full flex items-center justify-center">
+                            <i class="iconify text-2xl text-error" data-icon="solar:map-point-bold-duotone"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm font-medium my-0 text-muted">Laxmi Empire Hotel</p>
+                            <h6 class="text-sm">Mumbai, India</h6>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-4 mt-4">
+                        <div class="size-10! rounded-lg bg-warning flex items-center justify-center">
+                            <i class="iconify text-2xl text-white" data-icon="solar:scooter-line-duotone"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm font-medium my-0 text-muted">Scooter Freight</p>
+                            <h6 class="text-sm">#1245-456201</h6>
+                        </div>
+                        <span
+                            class="bg-light-success text-xs font-medium px-2.5 py-1 rounded-full text-success ml-auto">Delivered</span>
+                    </div>
+                    <div
+                        class="flex items-center gap-4 mt-4 relative after:content-[''] after:h-5 after:w-px after:bg-(--mat-sys-outline-variant) after:absolute after:top-[38px] after:left-5">
+                        <div class="size-10! border border-border rounded-full flex items-center justify-center">
+                            <i class="iconify text-2xl text-warning"
+                                data-icon="solar:soundwave-circle-bold-duotone"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm font-medium my-0 text-muted">Drainage</p>
+                            <h6 class="text-sm">United Kingdom</h6>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4 mt-4 border-b border-border pb-6">
+                        <div class="size-10! border border-border rounded-full flex items-center justify-center">
+                            <i class="iconify text-2xl text-warning" data-icon="solar:map-point-bold-duotone"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm font-medium my-0 text-muted">Drainage</p>
+                            <h6 class="text-sm">United Kingdom</h6>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-4 mt-4">
+                        <div class="size-10! rounded-lg bg-primary flex items-center justify-center">
+                            <i class="iconify text-2xl text-white" data-icon="solar:bus-line-duotone"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm font-medium my-0 text-muted">Bus Freight</p>
+                            <h6 class="text-sm">#9002-125423</h6>
+                        </div>
+                        <span
+                            class="bg-light-success text-xs font-medium px-2.5 py-1 rounded-full text-success ml-auto">Delivered</span>
+                    </div>
+                    <div
+                        class="flex items-center gap-4 mt-4 relative after:content-[''] after:h-5 after:w-px after:bg-(--mat-sys-outline-variant) after:absolute after:top-[38px] after:left-5">
+                        <div class="size-10! border border-border rounded-full flex items-center justify-center">
+                            <i class="iconify text-2xl text-primary"
+                                data-icon="solar:soundwave-circle-bold-duotone"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm font-medium my-0 text-muted">Messina Harbor</p>
+                            <h6 class="text-sm">Sicily, Italy</h6>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4 mt-4 pb-6">
+                        <div class="size-10! border border-border rounded-full flex items-center justify-center">
+                            <i class="iconify text-2xl text-primary" data-icon="solar:map-point-bold-duotone"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm font-medium my-0 text-muted">Hektor Container Hotel</p>
+                            <h6 class="text-sm">Tallin, EST</h6>
+                        </div>
+                    </div>
+                </div>
+            </ng-scrollbar>
+        </mat-tab>
+    </mat-tab-group>
+</mat-card>

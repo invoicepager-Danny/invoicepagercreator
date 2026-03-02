@@ -1,0 +1,44 @@
+<mat-card class="cardWithShadow mb-0!">
+  <mat-card-content>
+    <div class="flex justify-between items-center mb-6">
+      <mat-card-title>Recent Transactions</mat-card-title>
+      <div>
+        <button mat-icon-button [matMenuTriggerFor]="menu">
+          <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu" xPosition="before">
+          <a href="javascript:void(0)" class="flex items-center py-2.5 px-4 gap-2">
+            <span>Action</span>
+          </a>
+          <a href="javascript:void(0)" class="flex items-center py-2.5 px-4 gap-2">
+            <span>Another action</span>
+          </a>
+          <a href="javascript:void(0)" class="flex items-center py-2.5 px-4 gap-2">
+            <span>Something else here</span>
+          </a>
+        </mat-menu>
+      </div>
+    </div>
+
+    @for(stat of stats; track stat.color) {
+    <div class="flex items-center justify-between mb-6">
+      <div class="flex items-center gap-3">
+        <span class="text-{{ stat.color }} bg-light-{{
+          stat.color
+        }} rounded-lg size-10.5! flex items-center justify-center">
+          <img [src]="stat.img" alt="icon" />
+        </span>
+        <div>
+          <h6 class="text-base font-semibold">{{ stat.title }}</h6>
+          <p class="text-sm font-medium m-0 text-muted">{{ stat.subtitle }}</p>
+        </div>
+      </div>
+      <h6 class="font-normal text-sm m-0"> +${{ stat.percent }} </h6>
+    </div>
+    }
+
+    <button mat-flat-button color="primary" class="w-full mt-2">
+      View all Transctions
+    </button>
+  </mat-card-content>
+</mat-card>

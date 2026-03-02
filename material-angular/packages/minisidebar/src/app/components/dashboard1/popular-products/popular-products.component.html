@@ -1,0 +1,85 @@
+<mat-card class="cardWithShadow overflow-hidden mb-0!">
+    <mat-card-content class="pb-0!">
+        <mat-card-title>Popular Products</mat-card-title>
+        <mat-card-subtitle>Total 9k Visitors</mat-card-subtitle>
+    </mat-card-content>
+    <ng-scrollbar class="h-[465px]">
+        <div class="relative overflow-auto">
+            <table mat-table [dataSource]="dataSource" class="min-w-full">
+                <!-- Profile Column -->
+                <ng-container matColumnDef="products">
+                    <th mat-header-cell *matHeaderCellDef class="text-sm font-semibold">
+                        Products
+                    </th>
+                    <td class="whitespace-nowrap" mat-cell *matCellDef="let element">
+                        <div class="flex items-center gap-4">
+                            <img [src]="element.imagePath" alt="users" width="60" height="60" class="rounded-lg" />
+                            <div class="min-w-64">
+                                <h6 class="line-clamp-2 whitespace-normal w-full max-w-[215px] leading-5 text-sm">
+                                    {{ element.uname }}
+                                </h6>
+                            </div>
+                        </div>
+                    </td>
+                </ng-container>
+
+                <!-- Hour Rate Column -->
+                <ng-container matColumnDef="payment">
+                    <th mat-header-cell *matHeaderCellDef class="text-sm font-semibold">
+                        Payment
+                    </th>
+                    <td class="whitespace-nowrap" mat-cell *matCellDef="let element">
+                        <h6 class="text-base">{{ element.price }} <span class="text-muted">/499</span></h6>
+                        <p class="text-muted text-sm mb-1 mt-0">{{ element.paid }}</p>
+                        <mat-progress-bar mode="determinate" color="{{ element.progress }}"
+                            value="40"></mat-progress-bar>
+                    </td>
+                </ng-container>
+
+                <!-- Symbol Column -->
+                <ng-container matColumnDef="status">
+                    <th mat-header-cell *matHeaderCellDef class="text-sm font-semibold">
+                        Status
+                    </th>
+                    <td class="whitespace-nowrap" mat-cell *matCellDef="let element">
+                        <span class="bg-light-{{ element.progress }} text-{{
+                      element.progress
+                    }} text-xs font-medium px-2.5 py-1 rounded-full">
+                            {{ element.status | titlecase }}
+                        </span>
+                    </td>
+                </ng-container>
+
+                <!-- Weight Column -->
+                <ng-container matColumnDef="menu">
+                    <th mat-header-cell *matHeaderCellDef class="text-sm font-semibold">
+
+                    </th>
+                    <td class="whitespace-nowrap" mat-cell *matCellDef="let element">
+                        <button mat-icon-button [matMenuTriggerFor]="menu"
+                            aria-label="Example icon button with a vertical three dot icon">
+                            <mat-icon>more_vert</mat-icon>
+                        </button>
+                        <mat-menu #menu="matMenu" xPosition="before">
+                            <a href="javascript:void(0)" class="flex items-center py-2.5 px-4 gap-2">
+                                <i-tabler name="plus" class="size-5!"></i-tabler>
+                                <span>Add</span>
+                            </a>
+                            <a href="javascript:void(0)" class="flex items-center py-2.5 px-4 gap-2">
+                                <i-tabler name="edit" class="size-5!"></i-tabler>
+                                <span>Edit</span>
+                            </a>
+                            <a href="javascript:void(0)" class="flex items-center py-2.5 px-4 gap-2">
+                                <i-tabler name="trash" class="size-5!"></i-tabler>
+                                <span>Delete</span>
+                            </a>
+                        </mat-menu>
+                    </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+            </table>
+        </div>
+    </ng-scrollbar>
+</mat-card>

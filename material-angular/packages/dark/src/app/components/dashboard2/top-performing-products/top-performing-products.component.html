@@ -1,0 +1,97 @@
+<mat-card class="cardWithShadow overflow-hidden mb-0!">
+  <mat-card-content class="pb-4!">
+    <div class="flex justify-between items-center mb-1">
+      <mat-card-title>Top Performing Products</mat-card-title>
+      <div>
+        <button mat-icon-button [matMenuTriggerFor]="menu">
+          <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu" xPosition="before">
+          <a href="javascript:void(0)" class="flex items-center py-2.5 px-4 gap-2">
+            <span>Action</span>
+          </a>
+          <a href="javascript:void(0)" class="flex items-center py-2.5 px-4 gap-2">
+            <span>Another action</span>
+          </a>
+          <a href="javascript:void(0)" class="flex items-center py-2.5 px-4 gap-2">
+            <span>Something else here</span>
+          </a>
+        </mat-menu>
+      </div>
+    </div>
+    <div class="relative overflow-auto">
+      <table mat-table [dataSource]="dataSource" class="min-w-full top-performing-products-table">
+        <!-- Profile Column -->
+        <ng-container matColumnDef="product name">
+          <th mat-header-cell *matHeaderCellDef class="text-sm px-4 py-3 font-semibold pl-0!">
+            Product Name
+          </th>
+          <td class="pl-0 px-4 py-3 whitespace-nowrap" *matCellDef="let element">
+            <div class="flex items-center gap-3">
+              <span class="size-12! rounded-lg flex items-center justify-center {{ element.bgcolor }}">
+                <img [src]="element.imagePath" alt="users" />
+              </span>
+              <div>
+                <h6 class="font-semibold">
+                  {{ element.admin }}
+                </h6>
+                <span class="text-sm font-normal">
+                  Dashboard Template
+                </span>
+              </div>
+            </div>
+          </td>
+        </ng-container>
+
+        <!-- Hour Rate Column -->
+        <ng-container matColumnDef="category">
+          <th mat-header-cell *matHeaderCellDef class="text-sm px-4 py-3 font-semibold">
+            Category
+          </th>
+          <td class="px-4 py-3 whitespace-nowrap" *matCellDef="let element">
+            <span class="{{ element.bgcolor }} text-xs font-medium px-2.5 py-1 rounded-full">
+              {{ element.category | titlecase }}
+            </span>
+          </td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="sales">
+          <th mat-header-cell *matHeaderCellDef class="text-sm px-4 py-3 font-semibold">
+            Sales
+          </th>
+          <td class="px-4 py-3 whitespace-nowrap" *matCellDef="let element">
+            <p class="m-0 text-sm text-muted">{{ element.sales }}</p>
+          </td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="earnings">
+          <th mat-header-cell *matHeaderCellDef class="text-sm px-4 py-3 font-semibold">
+            Earnings
+          </th>
+          <td class="px-4 py-3 whitespace-nowrap" *matCellDef="let element">
+            <p class="m-0 text-sm text-muted">{{ element.earnings }}</p>
+          </td>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="technology">
+          <th mat-header-cell *matHeaderCellDef class="text-sm px-4 py-3 font-semibold text-right pr-0">
+            Technology
+          </th>
+          <td class="text-right pr-0 px-4 py-3 whitespace-nowrap" *matCellDef="let element">
+            <div class="flex items-center justify-end gap-2">
+              @for (item of element.technology; track item) {
+              <img [src]="item" alt="users" />
+              }
+            </div>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      </table>
+    </div>
+  </mat-card-content>
+</mat-card>

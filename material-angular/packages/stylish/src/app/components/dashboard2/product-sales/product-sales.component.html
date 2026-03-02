@@ -1,0 +1,69 @@
+<mat-card class="cardWithShadow mb-0!">
+  <mat-card-content>
+    <div class="flex justify-between items-baseline mb-7.5">
+      <mat-card-title class="text-lg">Product Sales</mat-card-title>
+      <div>
+        <button mat-icon-button [matMenuTriggerFor]="menu">
+          <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu" xPosition="before">
+          <a href="javascript:void(0)" class="flex items-center py-2.5 px-4 gap-2">
+            <span>Action</span>
+          </a>
+          <a href="javascript:void(0)" class="flex items-center py-2.5 px-4 gap-2">
+            <span>Another action</span>
+          </a>
+          <a href="javascript:void(0)" class="flex items-center py-2.5 px-4 gap-2">
+            <span>Something else here</span>
+          </a>
+        </mat-menu>
+      </div>
+    </div>
+
+    <apx-chart [series]="productsalesChart.series" [chart]="productsalesChart.chart" [colors]="productsalesChart.colors"
+      [dataLabels]="productsalesChart.dataLabels" [legend]="productsalesChart.legend"
+      [tooltip]="productsalesChart.tooltip" [plotOptions]="productsalesChart.plotOptions"
+      [grid]="productsalesChart.grid" [xaxis]="productsalesChart.xaxis" [yaxis]="productsalesChart.yaxis"
+      [labels]="productsalesChart.labels" [stroke]="productsalesChart.stroke"></apx-chart>
+
+    <div class="mt-3 mb-6 text-center">
+      <span
+        class="bg-light-success text-xs font-medium px-3 py-1 rounded-full text-success inline-flex items-center gap-0.5">
+        <img src="assets/images/svgs/icon-bolt.svg" class="img-fluid" alt="MaterialM-img" />
+        Best Seller
+      </span>
+    </div>
+    <div class="gap-3 border-b border-border py-6">
+      <div class="grid grid-cols-12 gap-4">
+        <div class="col-span-6">
+          <div class="flex items-center gap-2">
+            <span class="w-4.5 h-2.5 bg-primary rounded-full"></span>
+            <h6 class="text-sm font-normal">36% Modernize</h6>
+          </div>
+        </div>
+        <div class="col-span-6">
+          <div class="flex items-center gap-2">
+            <span class="w-4.5 h-2.5 bg-success rounded-full"></span>
+            <h6 class="text-sm font-normal">7% Spike</h6>
+          </div>
+        </div>
+        <div class="col-span-6">
+          <div class="flex items-center gap-2">
+            <span class="w-4.5 h-2.5 bg-secondary rounded-full"></span>
+            <h6 class="text-sm font-normal">22% Ample</h6>
+          </div>
+        </div>
+        <div class="col-span-6">
+          <div class="flex items-center gap-2">
+            <span class="w-4.5 h-2.5 bg-error rounded-full"></span>
+            <h6 class="text-sm font-normal">31% MaterialM</h6>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="text-xs text-center text-muted font-medium px-6 pt-7">This is overview of the sales happened this
+      month
+      for
+      the material website</p>
+  </mat-card-content>
+</mat-card>

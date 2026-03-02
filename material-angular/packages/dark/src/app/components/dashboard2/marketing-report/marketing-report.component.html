@@ -1,0 +1,75 @@
+<mat-card class="cardWithShadow mb-0!">
+  <mat-card-content>
+    <div class="flex justify-between items-baseline mb-5">
+      <mat-card-title>Marketing Report</mat-card-title>
+      <div>
+        <button mat-icon-button [matMenuTriggerFor]="menu">
+          <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu" xPosition="before">
+          <a href="javascript:void(0)" class="flex items-center py-2.5 px-4 gap-2">
+            <span>Action</span>
+          </a>
+          <a href="javascript:void(0)" class="flex items-center py-2.5 px-4 gap-2">
+            <span>Another action</span>
+          </a>
+          <a href="javascript:void(0)" class="flex items-center py-2.5 px-4 gap-2">
+            <span>Something else here</span>
+          </a>
+        </mat-menu>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-12 gap-6 items-center mb-6">
+      <div class="col-span-12 md:col-span-6">
+        <ul class="list-unstyled p-0 m-0 flex flex-col gap-6">
+          <li class="flex items-center gap-4">
+            <div class="bg-light-error px-4 py-2 rounded-full flex items-center justify-center">
+              <i class="iconify text-2xl text-error" data-icon="solar:course-up-line-duotone"></i>
+            </div>
+            <div>
+              <p class="text-sm font-medium text-muted m-0">Google Ads</p>
+              <h6 class="text-xl">+2.9k</h6>
+            </div>
+          </li>
+          <li class="flex items-center gap-4">
+            <div class="bg-light-success px-4 py-2 rounded-full flex items-center justify-center">
+              <i class="iconify text-2xl text-success" data-icon="solar:cursor-line-duotone"></i>
+            </div>
+            <div>
+              <p class="text-sm font-medium text-muted m-0">Referral</p>
+              <h6 class="text-xl">1.22</h6>
+            </div>
+          </li>
+          <li class="flex items-center gap-4">
+            <div class="bg-light-primary px-4 py-2 rounded-full flex items-center justify-center">
+              <i class="iconify text-2xl text-primary" data-icon="solar:pie-chart-3-line-duotone"></i>
+            </div>
+            <div>
+              <p class="text-sm font-medium text-muted m-0">Oraganic</p>
+              <h6 class="text-xl">24.3K</h6>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="col-span-12 md:col-span-6">
+        <apx-chart [series]="marketingreportChart.series" [chart]="marketingreportChart.chart"
+          [colors]="marketingreportChart.colors" [dataLabels]="marketingreportChart.dataLabels"
+          [legend]="marketingreportChart.legend" [tooltip]="marketingreportChart.tooltip"
+          [plotOptions]="marketingreportChart.plotOptions" [grid]="marketingreportChart.grid"
+          [xaxis]="marketingreportChart.xaxis" [yaxis]="marketingreportChart.yaxis"
+          [labels]="marketingreportChart.labels" [stroke]="marketingreportChart.stroke"></apx-chart>
+      </div>
+    </div>
+
+    <div class="bg-light rounded-lg px-4 py-3">
+      <div class="flex items-center justify-between">
+        <p class="text-sm font-medium text-muted m-0">Learn insigs how to manage</p>
+        <a href="javascript:void()" class="size-10! bg-primary rounded-full flex items-center justify-center">
+          <i class="iconify text-lg text-white" data-icon="solar:play-line-duotone"></i>
+        </a>
+      </div>
+    </div>
+
+  </mat-card-content>
+</mat-card>

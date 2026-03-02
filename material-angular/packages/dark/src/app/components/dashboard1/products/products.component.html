@@ -1,0 +1,22 @@
+<mat-card class="cardWithShadow mb-0!">
+  <mat-card-content>
+    <div class="flex justify-between items-baseline">
+      <div>
+        <mat-card-title class="text-base">Products</mat-card-title>
+        <mat-card-subtitle>Last 7 days</mat-card-subtitle>
+      </div>
+      <div>
+        <mat-card-title class="text-base text-right">432</mat-card-title>
+        <span class="bg-light-success text-xs font-medium px-2.5 py-1 rounded-full text-success">+26.5%</span>
+      </div>
+    </div>
+
+    <div class="my-2.5">
+      <apx-chart [series]="productsChart.series" [chart]="productsChart.chart" [colors]="productsChart.colors"
+        [dataLabels]="productsChart.dataLabels" [legend]="productsChart.legend" [tooltip]="productsChart.tooltip"
+        [plotOptions]="productsChart.plotOptions" [grid]="productsChart.grid" [xaxis]="productsChart.xaxis"
+        [yaxis]="productsChart.yaxis" [stroke]="productsChart.stroke"></apx-chart>
+    </div>
+    <p class="text-xs text-muted font-medium text-center m-0">Profit more than last month</p>
+  </mat-card-content>
+</mat-card>

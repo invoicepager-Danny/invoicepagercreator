@@ -1,0 +1,182 @@
+<mat-card class="cardWithShadow overflow-hidden mb-0!">
+    <div class="px-6 pt-6">
+        <div class="flex justify-between gap-4 flex-wrap mb-4">
+            <div>
+                <mat-card-title>Latest reviews</mat-card-title>
+                <mat-card-subtitle>Reviewed received across all
+                    channels</mat-card-subtitle>
+            </div>
+            <div class="flex items-center gap-4">
+                <mat-form-field appearance="outline" class="hide-hint">
+                    <mat-icon matSuffix>
+                        <i class="iconify text-xl" data-icon="solar:magnifer-line-duotone"></i>
+                    </mat-icon>
+                    <input matInput placeholder="Search" />
+                </mat-form-field>
+                <div>
+                    <button class="border! border-border!" mat-icon-button [matMenuTriggerFor]="menu">
+                        <mat-icon>more_vert</mat-icon>
+                    </button>
+                    <mat-menu #menu="matMenu" xPosition="before">
+                        <a href="javascript:void(0)" class="flex items-center py-2.5 px-4 text-muted gap-2">
+                            <i-tabler name="plus" class="size-5!"></i-tabler>
+                            <span>Add</span>
+                        </a>
+                        <a href="javascript:void(0)" class="flex items-center py-2.5 px-4 text-muted gap-2">
+                            <i-tabler name="edit" class="size-5!"></i-tabler>
+                            <span>Edit</span>
+                        </a>
+                        <a href="javascript:void(0)" class="flex items-center py-2.5 px-4 text-muted gap-2">
+                            <i-tabler name="trash" class="size-5!"></i-tabler>
+                            <span>Delete</span>
+                        </a>
+                    </mat-menu>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="relative overflow-auto">
+        <table mat-table [dataSource]="dataSource" class="min-w-full">
+            <ng-container matColumnDef="#">
+                <th mat-header-cell *matHeaderCellDef class="font-semibold text-base">
+                    #
+                </th>
+                <td class="whitespace-nowrap" mat-cell *matCellDef="let element">
+                    <mat-checkbox color="primary"></mat-checkbox>
+                </td>
+            </ng-container>
+            <!-- Profile Column -->
+            <ng-container matColumnDef="customer">
+                <th mat-header-cell *matHeaderCellDef class="font-semibold text-base">
+                    Customer
+                </th>
+                <td class="whitespace-nowrap" mat-cell *matCellDef="let element">
+                    <div class="flex items-center gap-3">
+                        <img [src]="element.imagePath" alt="users" width="32" height="32" class="rounded-full" />
+                        <div>
+                            <h5 class="text-base">
+                                {{ element.uname }}
+                            </h5>
+                            <p class="text-dark text-sm m-0">{{ element.email }}</p>
+                            @if (element.rating==="3.5") {
+                            <ul class="list-unstyled p-0 flex items-center gap-1 m-0">
+                                <li>
+                                    <a class="flex" href="javascript:void(0)">
+                                        <i-tabler name="star-filled" class="size-3.5! text-warning"></i-tabler>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="flex" href="javascript:void(0)">
+                                        <i-tabler name="star-filled" class="size-3.5! text-warning"></i-tabler>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="flex" href="javascript:void(0)">
+                                        <i-tabler name="star-filled" class="size-3.5! text-warning"></i-tabler>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="flex" href="javascript:void(0)">
+                                        <i-tabler name="star-half-filled" class="size-3.5! text-warning"></i-tabler>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="flex" href="javascript:void(0)">
+                                        <i-tabler name="star" class="size-3.5! text-warning"></i-tabler>
+                                    </a>
+                                </li>
+                            </ul>
+                            } @else {
+                            <!-- horizontal header -->
+                            <ul class="list-unstyled p-0 flex items-center gap-1 m-0">
+                                <li>
+                                    <a class="flex" href="javascript:void(0)">
+                                        <i-tabler name="star-filled" class="size-3.5! text-warning"></i-tabler>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="flex" href="javascript:void(0)">
+                                        <i-tabler name="star-filled" class="size-3.5! text-warning"></i-tabler>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="flex" href="javascript:void(0)">
+                                        <i-tabler name="star-filled" class="size-3.5! text-warning"></i-tabler>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="flex" href="javascript:void(0)">
+                                        <i-tabler name="star-filled" class="size-3.5! text-warning"></i-tabler>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="flex" href="javascript:void(0)">
+                                        <i-tabler name="star" class="size-3.5! text-warning"></i-tabler>
+                                    </a>
+                                </li>
+                            </ul>
+                            }
+                        </div>
+                    </div>
+                </td>
+            </ng-container>
+
+            <!-- Hour Rate Column -->
+            <ng-container matColumnDef="reviews">
+                <th mat-header-cell *matHeaderCellDef class="font-semibold text-base">
+                    Reviews
+                </th>
+                <td class="whitespace-nowrap" mat-cell *matCellDef="let element">
+                    <p class="text-dark line-clamp-2 whitespace-normal w-full max-w-[215px] leading-5 text-sm m-0">{{
+                        element.reviews }}</p>
+                </td>
+            </ng-container>
+
+            <!-- Symbol Column -->
+            <ng-container matColumnDef="date">
+                <th mat-header-cell *matHeaderCellDef class="font-semibold text-base">
+                    Date
+                </th>
+                <td class="whitespace-nowrap" mat-cell *matCellDef="let element">
+                    <p class="text-sm text-muted font-medium">{{ element.date }}</p>
+                </td>
+            </ng-container>
+
+            <!-- Weight Column -->
+            <ng-container matColumnDef="menu">
+                <th mat-header-cell *matHeaderCellDef class="font-semibold text-base">
+
+                </th>
+                <td class="whitespace-nowrap" mat-cell *matCellDef="let element">
+                    <button mat-icon-button [matMenuTriggerFor]="menu"
+                        aria-label="Example icon button with a vertical three dot icon">
+                        <mat-icon>more_vert</mat-icon>
+                    </button>
+                    <mat-menu #menu="matMenu" xPosition="before">
+                        <a href="javascript:void(0)" class="flex items-center py-2.5 px-4 text-muted gap-2">
+                            <i-tabler name="plus" class="size-5!"></i-tabler>
+                            <span>Add</span>
+                        </a>
+                        <a href="javascript:void(0)" class="flex items-center py-2.5 px-4 text-muted gap-2">
+                            <i-tabler name="edit" class="size-5!"></i-tabler>
+                            <span>Edit</span>
+                        </a>
+                        <a href="javascript:void(0)" class="flex items-center py-2.5 px-4 text-muted gap-2">
+                            <i-tabler name="trash" class="size-5!"></i-tabler>
+                            <span>Delete</span>
+                        </a>
+                    </mat-menu>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+        </table>
+    </div>
+    <div class="flex items-center justify-between px-6 pb-6">
+        <p class="text-sm text-muted font-medium">1-6 of 32</p>
+        <button mat-flat-button color="primary">
+            View All Reviews
+        </button>
+    </div>
+</mat-card>

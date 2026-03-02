@@ -1,0 +1,77 @@
+<mat-card class="cardWithShadow mb-0!">
+    <mat-card-content>
+        <div class="flex items-center justify-between flex-wrap mb-6">
+            <mat-card-title class="text-lg">Delivery Analytics</mat-card-title>
+            <div class="flex items-center justify-center gap-2">
+                <div class="theme-tab">
+                    <ul class="mat-mdc-tab-header list-unstyled p-0 m-0 flex items-center">
+                        <li><a [ngClass]="tabtitle==='orders' ? 'active-class' : ''" class="mat-mdc-tab text-xs"
+                                href="javascript:void(0)" (click)="handleTab('orders')">Email</a></li>
+                        <li><a [ngClass]="tabtitle!=='orders'? 'active-class' : ''" class="mat-mdc-tab text-xs"
+                                href="javascript:void(0)" (click)="handleTab('expenses')">From last week</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <button mat-icon-button [matMenuTriggerFor]="menu">
+                        <mat-icon>more_vert</mat-icon>
+                    </button>
+                    <mat-menu #menu="matMenu" xPosition="before">
+                        <a href="javascript:void(0)" class="flex items-center py-2.5 px-4 gap-2">
+                            <span>Action</span>
+                        </a>
+                        <a href="javascript:void(0)" class="flex items-center py-2.5 px-4 gap-2">
+                            <span>Another action</span>
+                        </a>
+                        <a href="javascript:void(0)" class="flex items-center py-2.5 px-4 gap-2">
+                            <span>Something else here</span>
+                        </a>
+                    </mat-menu>
+                </div>
+            </div>
+        </div>
+
+        @if (tabtitle==="orders") {
+        <div class="grid grid-cols-12 gap-6 items-center">
+            <div class="col-span-12 lg:col-span-7">
+                <apx-chart [series]="deliveryanalyticsChart.series" [chart]="deliveryanalyticsChart.chart"
+                    [colors]="deliveryanalyticsChart.colors" [stroke]="deliveryanalyticsChart.stroke"
+                    [fill]="deliveryanalyticsChart.fill" [markers]="deliveryanalyticsChart.markers"
+                    [tooltip]="deliveryanalyticsChart.tooltip" [labels]="deliveryanalyticsChart.labels"
+                    [plotOptions]="deliveryanalyticsChart.plotOptions" [grid]="deliveryanalyticsChart.grid"
+                    [dataLabels]="deliveryanalyticsChart.dataLabels" [legend]="deliveryanalyticsChart.legend"
+                    [xaxis]="deliveryanalyticsChart.xaxis" [yaxis]="deliveryanalyticsChart.yaxis"></apx-chart>
+            </div>
+            <div class="col-span-12 lg:col-span-5">
+                <div class="bg-light py-4 px-5 rounded-lg mb-7.5">
+                    <i class="iconify text-3xl text-primary" data-icon="solar:rocket-2-bold-duotone"></i>
+                    <h5 class="text-lg mt-1.5">Welcome Emails!</h5>
+                    <p class="text-sm text-dark font-medium m-0">Have great potential!</p>
+                </div>
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="w-4.5 h-2.5 bg-primary rounded-full"></span>
+                    <h6 class="text-base">22.3%</h6>
+                    <p class="text-sm font-medium text-muted m-0">Open Rate</p>
+                </div>
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="w-4.5 h-2.5 bg-secondary rounded-full"></span>
+                    <h6 class="text-base">14.2%</h6>
+                    <p class="text-sm font-medium text-muted m-0">Click-through Rate</p>
+                </div>
+                <div class="flex items-center gap-3">
+                    <span class="w-4.5 h-2.5 bg-error rounded-full"></span>
+                    <h6 class="text-base">11.6%</h6>
+                    <p class="text-sm font-medium text-muted m-0">Conversation Rate</p>
+                </div>
+            </div>
+        </div>
+
+        } @else {
+        <apx-chart [series]="deliveryChart.series" [dataLabels]="deliveryChart.dataLabels" [chart]="deliveryChart.chart"
+            [legend]="deliveryChart.legend" [colors]="deliveryChart.colors" [grid]="deliveryChart.grid"
+            [fill]="deliveryChart.fill" [stroke]="deliveryChart.stroke" [tooltip]="deliveryChart.tooltip"
+            [markers]="deliveryChart.markers" [xaxis]="deliveryChart.xaxis" [yaxis]="deliveryChart.yaxis"
+            [plotOptions]="deliveryChart.plotOptions"></apx-chart>
+        }
+
+    </mat-card-content>
+</mat-card>

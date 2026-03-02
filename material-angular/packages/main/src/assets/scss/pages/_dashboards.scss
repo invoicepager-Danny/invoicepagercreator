@@ -1,0 +1,117 @@
+@use "../variables" as *;
+
+.list-unstyled {
+  padding-left: 0;
+  list-style: none;
+}
+
+.theme-tab {
+  .mat-mdc-tab-header {
+    margin: 0 24px;
+    padding: 2px;
+    background-color: $light;
+    border-radius: 30px;
+
+    .mat-mdc-tab-label-container {
+      border-bottom-width: 0;
+    }
+
+    .mat-mdc-tab {
+      color: var(--mat-sys-container-lowest);
+      font-weight: 600;
+      padding: 8px 16px;
+      height: auto;
+      display: block;
+      border-radius: 30px;
+      min-width: 100px;
+      text-align: center;
+      text-decoration: none;
+      overflow: hidden;
+
+      .mdc-tab__text-label {
+        color: var(--mat-sys-container-lowest);
+      }
+
+      .mdc-tab-indicator__content--underline {
+        border: 0;
+      }
+
+      &.mdc-tab--active {
+        .mdc-tab__text-label {
+          color: var(--mat-sys-on-background);
+        }
+      }
+
+      &.mdc-tab--active,
+      &.active-class {
+        background-color: var(--mat-sys-surface);
+        color: var(--mat-sys-on-background);
+      }
+    }
+  }
+}
+
+.payment-methods-table {
+  thead {
+    display: none;
+  }
+}
+
+.rounded-bars .apexcharts-bar-series.apexcharts-plot-series .apexcharts-series path {
+  clip-path: inset(0 0 5% 0 round 20px);
+}
+
+.rounded-pill-bars .apexcharts-rangebar-area {
+  clip-path: inset(9% 0 11% round 24px);
+}
+
+// expansion panel
+
+html .mat-expansion-panel:not([class*="mat-elevation-z"]) {
+  box-shadow: var(--mat-sys-level2);
+}
+
+.most-visit-chart {
+  .apexcharts-bar-series.apexcharts-plot-series .apexcharts-series path {
+    clip-path: inset(0 0 5% 0 round 20px);
+  }
+}
+
+.timeline {
+  .timeline-item {
+    .point {
+      .timeline-badge {
+
+        &.border-primary {
+          border: 2px solid var(--mat-sys-primary) !important;
+        }
+
+        &.border-accent {
+          border: 2px solid var(--mat-sys-secondary) !important;
+        }
+
+        &.border-success {
+          border: 2px solid $success !important;
+        }
+
+        &.border-warning {
+          border: 2px solid $warning !important;
+        }
+
+        &.border-error {
+          border: 2px solid var(--mat-sys-error) !important;
+        }
+      }
+    }
+
+    &:last-child {
+      .timeline-border {
+        display: none !important;
+      }
+    }
+
+    &:last-child {
+      height: auto;
+    }
+  }
+}
