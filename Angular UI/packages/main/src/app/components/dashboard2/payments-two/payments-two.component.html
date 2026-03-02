@@ -1,0 +1,50 @@
+<mat-card class="cardWithShadow mb-0!">
+  <mat-card-content>
+    <div class="flex justify-between items-center mb-5">
+      <mat-card-title>Payments</mat-card-title>
+      <div>
+        <button mat-icon-button [matMenuTriggerFor]="menu">
+          <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu" xPosition="before">
+          <a href="javascript:void(0)" class="flex items-center py-2.5 px-4 gap-2">
+            <span>Action</span>
+          </a>
+          <a href="javascript:void(0)" class="flex items-center py-2.5 px-4 gap-2">
+            <span>Another action</span>
+          </a>
+          <a href="javascript:void(0)" class="flex items-center py-2.5 px-4 gap-2">
+            <span>Something else here</span>
+          </a>
+        </mat-menu>
+      </div>
+    </div>
+
+    <div>
+      <h6 class="text-xl flex items-center gap-2">12,389 <span
+          class="bg-light-error text-xs font-medium px-2 py-0.5 rounded-full text-error">-3.8%</span></h6>
+      <p class="text-sm font-medium text-muted m-0">Last 7 days</p>
+    </div>
+
+    <div class="mb-5 -mx-4">
+      <apx-chart [series]="paymentstwoChart.series" [chart]="paymentstwoChart.chart" [colors]="paymentstwoChart.colors"
+        [dataLabels]="paymentstwoChart.dataLabels" [legend]="paymentstwoChart.legend"
+        [tooltip]="paymentstwoChart.tooltip" [plotOptions]="paymentstwoChart.plotOptions" [grid]="paymentstwoChart.grid"
+        [xaxis]="paymentstwoChart.xaxis" [yaxis]="paymentstwoChart.yaxis" class="rounded-bars"></apx-chart>
+    </div>
+    <div class="flex items-center justify-between mb-2">
+      <div class="flex items-center gap-2">
+        <span class="w-4.5 h-2.5 bg-primary rounded-full"></span>
+        <p class="text-sm font-medium text-muted m-0">Paypal</p>
+      </div>
+      <p class="text-sm font-medium text-muted m-0">52%</p>
+    </div>
+    <div class="flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <span class="w-4.5 h-2.5 bg-light rounded-full"></span>
+        <p class="text-sm font-medium text-muted m-0">Credit Card</p>
+      </div>
+      <p class="text-sm font-medium text-muted m-0">48%</p>
+    </div>
+  </mat-card-content>
+</mat-card>

@@ -1,0 +1,115 @@
+<mat-card class="cardWithShadow mb-0!">
+    <mat-card-content class="pb-3!">
+        <div class="flex justify-between mb-3">
+            <mat-card-title class="text-lg">Payment Methods</mat-card-title>
+            <div>
+                <button mat-icon-button [matMenuTriggerFor]="menu">
+                    <mat-icon>more_vert</mat-icon>
+                </button>
+                <mat-menu #menu="matMenu" xPosition="before">
+                    <a href="javascript:void(0)" class="flex items-center py-2.5 px-4 gap-2">
+                        <span>Action</span>
+                    </a>
+                    <a href="javascript:void(0)" class="flex items-center py-2.5 px-4 gap-2">
+                        <span>Another action</span>
+                    </a>
+                    <a href="javascript:void(0)" class="flex items-center py-2.5 px-4 gap-2">
+                        <span>Something else here</span>
+                    </a>
+                </mat-menu>
+            </div>
+        </div>
+        <div class="grid grid-cols-12 gap-6">
+            <div class="col-span-12 lg:col-span-6">
+                <mat-card
+                    class="cardWithShadow bg-[url('/assets/images/shapes/circlr-shape.png')] bg-no-repeat bg-bottom-right bg-[#1f2a3d]!">
+                    <mat-card-content>
+                        <div class="flex items-center justify-between mb-10">
+                            <h6 class="text-lg text-white">**** 8942</h6>
+                            <img src="assets/images/svgs/icon-visa.svg" alt="" class="img-fluid" />
+                        </div>
+                        <div>
+                            <p class="text-white opacity-75 text-sm font-medium mb-2">Balance</p>
+                            <h6 class="text-lg text-white">$26,561.50</h6>
+                        </div>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+            <div class="col-span-12 lg:col-span-6">
+                <mat-card
+                    class="cardWithShadow bg-[url('/assets/images/shapes/circle-white-shape.png')] bg-no-repeat bg-bottom-right bg-light shadow-none!">
+                    <mat-card-content>
+                        <div class="flex items-center justify-between mb-10">
+                            <h6 class="text-lg">**** 8942</h6>
+                            <img src="assets/images/svgs/icon-master-card-1.svg" alt="" class="img-fluid" />
+                        </div>
+                        <div>
+                            <p class="text-sm font-medium mb-2">Balance</p>
+                            <h6 class="text-lg">$26,561.50</h6>
+                        </div>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </div>
+        <div class="flex items-center justify-between pb-2 border-b border-border">
+            <h6 class="text-lg">Transactions</h6>
+            <a href="javascript:void(0)" class="font-semibold text-sm text-primary flex items-center">See
+                all
+                <i-tabler name="chevron-right" class="size-5!"></i-tabler>
+            </a>
+        </div>
+        <div class="relative overflow-auto">
+            <table mat-table [dataSource]="dataSource" class="min-w-full payment-methods-table">
+                <!-- Profile Column -->
+                <ng-container matColumnDef="product name">
+                    <th mat-header-cell *matHeaderCellDef class="text-sm p-3 pl-0!">
+                        Product Name
+                    </th>
+                    <td mat-cell class="pl-0! p-3 whitespace-nowrap" *matCellDef="let element">
+                        <div class="flex items-center gap-4">
+                            <span class="bg-light size-12! rounded-full flex items-center justify-center shrink-0">
+                                <img [src]="element.imagePath" alt="users" />
+                            </span>
+                            <div>
+                                <h6 class="text-base">
+                                    {{ element.title }}
+                                </h6>
+                                <p class="text-xs font-medium text-muted m-0">
+                                    {{ element.subtitle }}
+                                </p>
+                            </div>
+                        </div>
+                    </td>
+                </ng-container>
+
+                <!-- Hour Rate Column -->
+                <ng-container matColumnDef="category">
+                    <th mat-header-cell *matHeaderCellDef class="text-sm p-3">
+                        Category
+                    </th>
+                    <td mat-cell class="p-3 text-right! whitespace-nowrap" *matCellDef="let element">
+                        <span class="{{ element.bgcolor }} text-xs font-medium px-2.5 py-1 rounded-full">
+                            {{ element.category | titlecase }}
+                        </span>
+                    </td>
+                </ng-container>
+
+                <!-- Symbol Column -->
+                <ng-container matColumnDef="sales">
+                    <th mat-header-cell *matHeaderCellDef class="text-sm p-3">
+                        Sales
+                    </th>
+                    <td mat-cell class="p-3 pr-0! text-right! whitespace-nowrap" *matCellDef="let element">
+                        <h6 class="text-base">
+                            {{ element.transactions }}
+                        </h6>
+                        <p class="{{ element.color }} m-0 text-xs font-medium">{{ element.bonus }}</p>
+                    </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+            </table>
+        </div>
+    </mat-card-content>
+</mat-card>

@@ -1,0 +1,43 @@
+<mat-card class="shadow-none! bg-light-primary mb-0!">
+  <mat-card-content class="pb-4!">
+    <div class="flex justify-between items-center mb-6">
+      <mat-card-title>Return On Investment</mat-card-title>
+      <div>
+        <button mat-icon-button [matMenuTriggerFor]="menu">
+          <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu" xPosition="before">
+          <a href="javascript:void(0)" class="flex items-center py-2.5 px-4 gap-2">
+            <span>Action</span>
+          </a>
+          <a href="javascript:void(0)" class="flex items-center py-2.5 px-4 gap-2">
+            <span>Another action</span>
+          </a>
+          <a href="javascript:void(0)" class="flex items-center py-2.5 px-4 gap-2">
+            <span>Something else here</span>
+          </a>
+        </mat-menu>
+      </div>
+    </div>
+
+    <div class="flex items-center gap-6">
+      <div class="bg-light px-4 py-2 rounded-full flex items-center justify-center">
+        <i class="iconify text-2xl" data-icon="solar:course-up-line-duotone"></i>
+      </div>
+      <div>
+        <h6 class="text-xl">283%</h6>
+        <p class="text-sm text-muted m-0 font-medium">ROI</p>
+      </div>
+      <div>
+        <h6 class="text-primary text-sm">+24%</h6>
+        <p class="text-sm text-muted m-0 font-medium">January</p>
+      </div>
+    </div>
+
+    <apx-chart [series]="returninvestmentChart.series" [chart]="returninvestmentChart.chart"
+      [colors]="returninvestmentChart.colors" [dataLabels]="returninvestmentChart.dataLabels"
+      [legend]="returninvestmentChart.legend" [tooltip]="returninvestmentChart.tooltip"
+      [plotOptions]="returninvestmentChart.plotOptions" [grid]="returninvestmentChart.grid"
+      [xaxis]="returninvestmentChart.xaxis" [yaxis]="returninvestmentChart.yaxis" class="rounded-bars"></apx-chart>
+  </mat-card-content>
+</mat-card>

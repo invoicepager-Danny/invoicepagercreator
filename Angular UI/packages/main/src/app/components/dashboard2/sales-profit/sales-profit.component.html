@@ -1,0 +1,62 @@
+<mat-card class="cardWithShadow mb-0!">
+    <mat-card-content>
+        <div class="flex items-baseline justify-between mb-2">
+            <mat-card-title>Sales Profit</mat-card-title>
+            <div class="theme-tab">
+                <ul class="mat-mdc-tab-header list-unstyled p-0 m-0 flex items-center">
+                    <li><a [ngClass]="tabtitle==='profit' ? 'active-class' : ''" class="mat-mdc-tab text-xs"
+                            href="javascript:void(0)" (click)="handleTab('profit')">Profit</a></li>
+                    <li><a [ngClass]="tabtitle!=='profit'? 'active-class' : ''" class="mat-mdc-tab text-xs"
+                            href="javascript:void(0)" (click)="handleTab('expenses')">Expenses</a></li>
+                </ul>
+            </div>
+        </div>
+
+        @if (tabtitle==="profit") {
+        <div class="mb-7.5">
+            <apx-chart [series]="salesprofitChart.series" [dataLabels]="salesprofitChart.dataLabels"
+                [chart]="salesprofitChart.chart" [legend]="salesprofitChart.legend" [colors]="salesprofitChart.colors"
+                [grid]="salesprofitChart.grid" [fill]="salesprofitChart.fill" [stroke]="salesprofitChart.stroke"
+                [tooltip]="salesprofitChart.tooltip" [markers]="salesprofitChart.markers"
+                [xaxis]="salesprofitChart.xaxis" [responsive]="salesprofitChart.responsive"
+                [yaxis]="salesprofitChart.yaxis"></apx-chart>
+        </div>
+        <div class="flex items-center justify-between flex-wrap gap-6">
+            <div class="flex items-center flex-wrap gap-6">
+                <div class="flex items-center gap-3">
+                    <div class="bg-light-primary px-4 py-2 rounded-full flex items-center justify-center">
+                        <i class="iconify text-2xl text-primary"
+                            data-icon="solar:checklist-minimalistic-line-duotone"></i>
+                    </div>
+                    <div>
+                        <h6 class="text-base">$63,489.50 <span
+                                class="bg-light-success text-xs font-medium px-2.5 py-1 rounded-full text-success">+8%</span>
+                        </h6>
+                        <p class="text-sm text-muted my-0 font-medium">Profit this year</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-3">
+                    <div class="bg-light px-4 py-2 rounded-full flex items-center justify-center">
+                        <i class="iconify text-2xl text-muted" data-icon="solar:dollar-minimalistic-line-duotone"></i>
+                    </div>
+                    <div>
+                        <h6 class="text-base">$38,496.00</h6>
+                        <p class="text-sm text-muted my-0 font-medium">Profit last year</p>
+                    </div>
+                </div>
+            </div>
+            <button mat-flat-button color="primary">
+                View Details
+            </button>
+        </div>
+
+        } @else {
+        <apx-chart [series]="expensesChart.series" [dataLabels]="expensesChart.dataLabels" [chart]="expensesChart.chart"
+            [legend]="expensesChart.legend" [colors]="expensesChart.colors" [grid]="expensesChart.grid"
+            [fill]="expensesChart.fill" [stroke]="expensesChart.stroke" [tooltip]="expensesChart.tooltip"
+            [markers]="expensesChart.markers" [xaxis]="expensesChart.xaxis" [responsive]="expensesChart.responsive"
+            [yaxis]="expensesChart.yaxis" [plotOptions]="expensesChart.plotOptions"
+            [responsive]="expensesChart.responsive"></apx-chart>
+        }
+    </mat-card-content>
+</mat-card>

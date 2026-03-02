@@ -1,0 +1,42 @@
+<mat-card class="shadow-none! bg-light-error mb-0!">
+  <mat-card-content>
+    <div class="flex justify-between items-center mb-5 pb-0.5">
+      <div class="flex items-center gap-3">
+        <div class="bg-error px-4 py-2 rounded-full flex items-center justify-center">
+          <i class="iconify text-2xl text-white" data-icon="solar:users-group-rounded-bold-duotone"></i>
+        </div>
+        <mat-card-title class="text-base! font-medium! text-muted">Total followers</mat-card-title>
+      </div>
+      <div>
+        <button mat-icon-button [matMenuTriggerFor]="menu">
+          <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu" xPosition="before">
+          <a href="javascript:void(0)" class="flex items-center py-2.5 px-4 gap-2">
+            <span>Action</span>
+          </a>
+          <a href="javascript:void(0)" class="flex items-center py-2.5 px-4 gap-2">
+            <span>Another action</span>
+          </a>
+          <a href="javascript:void(0)" class="flex items-center py-2.5 px-4 gap-2">
+            <span>Something else here</span>
+          </a>
+        </mat-menu>
+      </div>
+    </div>
+    <div class="grid grid-cols-12 gap-6 items-end justify-between pt-2.5">
+      <div class="col-span-6">
+        <h2 class="text-3xl mb-2">4,562</h2>
+        <span class="text-xs font-semibold px-2.5 py-1 rounded-full border border-muted text-muted">+23% last
+          month</span>
+      </div>
+      <div class="col-span-6">
+        <apx-chart [series]="totalfollowersChart.series" [chart]="totalfollowersChart.chart"
+          [colors]="totalfollowersChart.colors" [dataLabels]="totalfollowersChart.dataLabels"
+          [legend]="totalfollowersChart.legend" [tooltip]="totalfollowersChart.tooltip"
+          [plotOptions]="totalfollowersChart.plotOptions" [grid]="totalfollowersChart.grid"
+          [xaxis]="totalfollowersChart.xaxis" [yaxis]="totalfollowersChart.yaxis" class="rounded-bars"></apx-chart>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

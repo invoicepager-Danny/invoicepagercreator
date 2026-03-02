@@ -1,0 +1,65 @@
+<mat-card class="cardWithShadow mb-0!">
+    <mat-card-content>
+        <div class="grid grid-cols-12 gap-6">
+            <div class="col-span-12 xl:col-span-8 border-r border-border">
+                <div class="flex flex-wrap mb-6 gap-6 justify-between items-start">
+                    <div>
+                        <h5 class="text-sm font-light">Overall Balance</h5>
+                        <h2 class="text-3xl my-1">$2,538,942</h2>
+                        <div class="flex items-center gap-1">
+                            <span
+                                class="bg-light-success text-xs font-medium px-2.5 py-1 gap-1 rounded-full text-success flex items-center">
+                                <i class="iconify text-base text-success" data-icon="solar:alt-arrow-down-bold"></i>
+                                16.3%
+                            </span>
+                            <p class="text-xs text-muted m-0 font-medium">last 12 months</p>
+                        </div>
+                    </div>
+                    <div class="theme-tab flex items-center justify-center">
+                        <ul class="mat-mdc-tab-header list-unstyled p-0 m-0 flex items-center">
+                            <li><a [ngClass]="tabtitle==='orders' ? 'active-class' : ''" class="mat-mdc-tab text-xs"
+                                    href="javascript:void(0)" (click)="handleTab('orders')">Orders</a></li>
+                            <li><a [ngClass]="tabtitle!=='orders'? 'active-class' : ''" class="mat-mdc-tab text-xs"
+                                    href="javascript:void(0)" (click)="handleTab('expenses')">Income</a></li>
+                        </ul>
+                    </div>
+                </div>
+                @if (tabtitle==="orders") {
+                <apx-chart [series]="overallbalanceChart.series" [dataLabels]="overallbalanceChart.dataLabels"
+                    [chart]="overallbalanceChart.chart" [legend]="overallbalanceChart.legend"
+                    [colors]="overallbalanceChart.colors" [grid]="overallbalanceChart.grid"
+                    [fill]="overallbalanceChart.fill" [stroke]="overallbalanceChart.stroke"
+                    [tooltip]="overallbalanceChart.tooltip" [markers]="overallbalanceChart.markers"
+                    [xaxis]="overallbalanceChart.xaxis" [responsive]="overallbalanceChart.responsive"
+                    [yaxis]="overallbalanceChart.yaxis"></apx-chart>
+
+                } @else {
+                <apx-chart [series]="expensesChart.series" [dataLabels]="expensesChart.dataLabels"
+                    [chart]="expensesChart.chart" [legend]="expensesChart.legend" [colors]="expensesChart.colors"
+                    [grid]="expensesChart.grid" [fill]="expensesChart.fill" [stroke]="expensesChart.stroke"
+                    [tooltip]="expensesChart.tooltip" [markers]="expensesChart.markers" [xaxis]="expensesChart.xaxis"
+                    [responsive]="expensesChart.responsive" [yaxis]="expensesChart.yaxis"
+                    [plotOptions]="expensesChart.plotOptions" [responsive]="expensesChart.responsive"></apx-chart>
+                }
+            </div>
+            <div class="col-span-12 xl:col-span-4">
+                <ul class="list-unstyled p-0 m-0 flex flex-col gap-3">
+                    @for(stat of stats; track stat.color) {
+                    <li class="bg-light px-4 py-4.5 rounded-xl hstack gap-3">
+                        <div class="flex items-center gap-3">
+                            <span
+                                class="text-{{ stat.color }} bg-light-{{ stat.color }} px-4 py-2 rounded-full flex items-center justify-center">
+                                <i class="iconify text-2xl" [attr.data-icon]="stat.icon"></i>
+                            </span>
+                            <div>
+                                <p class="text-muted m-0 text-xs font-medium">{{ stat.subtitle }}</p>
+                                <h6 class="text-sm">{{ stat.title }}</h6>
+                            </div>
+                        </div>
+                    </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </mat-card-content>
+</mat-card>

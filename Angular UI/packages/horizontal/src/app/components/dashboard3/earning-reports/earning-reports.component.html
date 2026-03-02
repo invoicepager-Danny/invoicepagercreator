@@ -1,0 +1,51 @@
+<mat-card class="cardWithShadow mb-0!">
+  <mat-card-content>
+    <div class="flex justify-between items-center mb-4">
+      <mat-card-title>Earning Reports</mat-card-title>
+      <div>
+        <button mat-icon-button [matMenuTriggerFor]="menu">
+          <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu" xPosition="before">
+          <a href="javascript:void(0)" class="flex items-center py-2.5 px-4 gap-2">
+            <span>Action</span>
+          </a>
+          <a href="javascript:void(0)" class="flex items-center py-2.5 px-4 gap-2">
+            <span>Another action</span>
+          </a>
+          <a href="javascript:void(0)" class="flex items-center py-2.5 px-4 gap-2">
+            <span>Something else here</span>
+          </a>
+        </mat-menu>
+      </div>
+    </div>
+
+    @for(stat of stats; track stat.color) {
+    <ul class="list-unstyled p-0 m-0">
+      <li class="flex items-center justify-between py-4.5 border-b border-border">
+        <div class="flex items-center gap-4">
+          <span
+            class="text-{{ stat.color }} bg-light-{{ stat.color }} px-4 py-2 rounded-full flex items-center justify-center">
+            <i class="iconify text-2xl" [attr.data-icon]="stat.icon"></i>
+          </span>
+          <div>
+            <h6 class="text-sm">{{ stat.title }}</h6>
+            <p class="text-muted m-0 text-xs font-medium flex items-center gap-1">
+              {{ stat.subtitle }}
+              <i class="iconify" data-icon="solar:info-circle-linear"></i>
+            </p>
+          </div>
+        </div>
+        <span class="bg-light-success text-success text-xs font-medium px-4 py-2 rounded-full flex items-center gap-1">
+          <i class="iconify text-xs" data-icon="solar:alt-arrow-up-bold"></i>
+          {{ stat.badge }}
+        </span>
+      </li>
+    </ul>
+    }
+    <a href="javascript:void(0)"
+      class="text-base font-medium primary-hover-text mt-7.5 text-center block text-dark">View
+      more
+      markets</a>
+  </mat-card-content>
+</mat-card>

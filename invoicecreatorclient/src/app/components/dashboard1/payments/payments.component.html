@@ -1,0 +1,35 @@
+<mat-card class="cardWithShadow mb-0!">
+  <mat-card-content>
+    <div class="flex justify-between items-baseline">
+      <div>
+        <mat-card-title class="text-base">Payments</mat-card-title>
+        <mat-card-subtitle>Last 7 days</mat-card-subtitle>
+      </div>
+      <div>
+        <mat-card-title class="text-base text-right">12,389</mat-card-title>
+        <span class="bg-light-error text-xs font-medium px-2.5 py-1 rounded-full text-error">-3.8%</span>
+      </div>
+    </div>
+
+    <div class="-mx-4">
+      <apx-chart [series]="paymentsChart.series" [chart]="paymentsChart.chart" [colors]="paymentsChart.colors"
+        [dataLabels]="paymentsChart.dataLabels" [legend]="paymentsChart.legend" [tooltip]="paymentsChart.tooltip"
+        [plotOptions]="paymentsChart.plotOptions" [grid]="paymentsChart.grid" [xaxis]="paymentsChart.xaxis"
+        [yaxis]="paymentsChart.yaxis" class="rounded-bars"></apx-chart>
+    </div>
+    <div class="flex items-center justify-between mb-2">
+      <div class="flex items-center gap-2">
+        <span class="w-4.5 h-2.5 bg-primary rounded-full"></span>
+        <p class="text-sm text-muted my-0 font-medium">Paypal</p>
+      </div>
+      <p class="text-sm text-muted my-0 font-medium">52%</p>
+    </div>
+    <div class="flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <span class="w-4.5 h-2.5 bg-light rounded-full"></span>
+        <p class="text-sm text-muted my-0 font-medium">Credit Card</p>
+      </div>
+      <p class="text-sm text-muted my-0 font-medium">48%</p>
+    </div>
+  </mat-card-content>
+</mat-card>
